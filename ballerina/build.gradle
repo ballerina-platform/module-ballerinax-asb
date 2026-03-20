@@ -78,19 +78,19 @@ dependencies {
     }
     
     /* Jackson dependencies */
-    externalJars(group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "${jacksonVersion}") {
+    externalJars(group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "${jacksonAnnotationsVersion}") {
         transitive = false
     }
-    externalJars(group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "${jacksonVersion}") {
+    externalJars(group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "${jacksonCoreVersion}") {
         transitive = false
     }
     externalJars(group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${jacksonDatabindVersion}") {
         transitive = false
     }
-    externalJars(group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: "${jacksonVersion}") {
+    externalJars(group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: "${jacksonDatatypeJsrVersion}") {
         transitive = false
     }
-    externalJars(group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: "${jacksonVersion}") {
+    externalJars(group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: "${jacksonDataFormatXmlVersion}") {
         transitive = false
     }
 
@@ -192,8 +192,12 @@ task updateTomlFiles {
         newBallerinaToml = newBallerinaToml.replace("@azure.core.http.netty.version@", project.azureCoreHttpNettyVersion)
         newBallerinaToml = newBallerinaToml.replace("@azure.qpid.protonj.version@", project.azureQpidProtonJExVersion)
         newBallerinaToml = newBallerinaToml.replace("@azure.json.version@", project.azureJsonVersion)
-        newBallerinaToml = newBallerinaToml.replace("@jackson.version@", project.jacksonVersion)
+        newBallerinaToml = newBallerinaToml.replace("@azure.xml.version@", project.azureXmlVersion)
+        newBallerinaToml = newBallerinaToml.replace("@jackson.annotations.version@", project.jacksonAnnotationsVersion)
+        newBallerinaToml = newBallerinaToml.replace("@jackson.core.version@", project.jacksonCoreVersion)
         newBallerinaToml = newBallerinaToml.replace("@jackson.databind.version@", project.jacksonDatabindVersion)
+        newBallerinaToml = newBallerinaToml.replace("@jackson.datatypejsr.version@", project.jacksonDatatypeJsrVersion)
+        newBallerinaToml = newBallerinaToml.replace("@jackson.dataformatxml.version@", project.jacksonDataFormatXmlVersion)
         newBallerinaToml = newBallerinaToml.replace("@netty.version@", project.nettyVersion)
         newBallerinaToml = newBallerinaToml.replace("@netty.tcnative.version@", project.nettyTcnativeVersion)
         newBallerinaToml = newBallerinaToml.replace("@reactor.core.version@", project.reactorCoreVersion)

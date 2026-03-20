@@ -63,14 +63,14 @@ path = "./lib/qpid-proton-j-extensions-@azure.qpid.protonj.version@.jar"
 [[platform.java17.dependency]]
 groupId = "com.fasterxml.jackson.core"
 artifactId = "jackson-annotations"
-version = "@jackson.version@"
-path = "./lib/jackson-annotations-@jackson.version@.jar"
+version = "@jackson.annotations.version@"
+path = "./lib/jackson-annotations-@jackson.annotations.version@.jar"
 
 [[platform.java17.dependency]]
 groupId = "com.fasterxml.jackson.core"
 artifactId = "jackson-core"
-version = "@jackson.version@"
-path = "./lib/jackson-core-@jackson.version@.jar"
+version = "@jackson.core.version@"
+path = "./lib/jackson-core-@jackson.core.version@.jar"
 
 [[platform.java17.dependency]]
 groupId = "com.fasterxml.jackson.core"
@@ -81,14 +81,14 @@ path = "./lib/jackson-databind-@jackson.databind.version@.jar"
 [[platform.java17.dependency]]
 groupId = "com.fasterxml.jackson.datatype"
 artifactId = "jackson-datatype-jsr310"
-version = "@jackson.version@"
-path = "./lib/jackson-datatype-jsr310-@jackson.version@.jar"
+version = "@jackson.datatypejsr.version@"
+path = "./lib/jackson-datatype-jsr310-@jackson.datatypejsr.version@.jar"
 
 [[platform.java17.dependency]]
 groupId = "com.fasterxml.jackson.dataformat"
 artifactId = "jackson-dataformat-xml"
-version = "@jackson.version@"
-path = "./lib/jackson-dataformat-xml-@jackson.version@.jar"
+version = "@jackson.dataformatxml.version@"
+path = "./lib/jackson-dataformat-xml-@jackson.dataformatxml.version@.jar"
 
 # Netty dependencies
 [[platform.java17.dependency]]
