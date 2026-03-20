@@ -76,10 +76,7 @@ dependencies {
     externalJars(group: 'com.azure', name: 'azure-json', version: "${azureJsonVersion}") {
         transitive = false
     }
-    externalJars(group: 'com.azure', name: 'azure-xml', version: "${azureXmlVersion}") {
-        transitive = false
-    }
-
+    
     /* Jackson dependencies */
     externalJars(group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "${jacksonVersion}") {
         transitive = false
@@ -195,7 +192,6 @@ task updateTomlFiles {
         newBallerinaToml = newBallerinaToml.replace("@azure.core.http.netty.version@", project.azureCoreHttpNettyVersion)
         newBallerinaToml = newBallerinaToml.replace("@azure.qpid.protonj.version@", project.azureQpidProtonJExVersion)
         newBallerinaToml = newBallerinaToml.replace("@azure.json.version@", project.azureJsonVersion)
-        newBallerinaToml = newBallerinaToml.replace("@azure.xml.version@", project.azureXmlVersion)
         newBallerinaToml = newBallerinaToml.replace("@jackson.version@", project.jacksonVersion)
         newBallerinaToml = newBallerinaToml.replace("@jackson.databind.version@", project.jacksonDatabindVersion)
         newBallerinaToml = newBallerinaToml.replace("@netty.version@", project.nettyVersion)
