@@ -38,33 +38,7 @@ dependencies {
     implementation group: 'org.ballerinalang', name: 'ballerina-lang', version: "${ballerinaLangVersion}"
     implementation group: 'org.ballerinalang', name: 'value', version: "${ballerinaLangVersion}"
     implementation group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
-    implementation group: 'com.azure', name: 'azure-messaging-servicebus', version: "${azureServiceBusVersion}"
-
-    dist (group: 'com.azure', name: 'azure-messaging-servicebus', version: "${azureServiceBusVersion}") {
-        exclude group: "com.fasterxml.woodstox", module: "woodstox-core"
-        exclude group: "org.codehaus.woodstox", module: "stax2-api"
-        exclude group: "com.fasterxml.jackson.core", module: "jackson-annotations"
-        exclude group: "io.netty", module: "netty-buffer"
-        exclude group: "io.netty", module: "netty-codec"
-        exclude group: "io.netty", module: "netty-codec-dns"
-        exclude group: "io.netty", module: "netty-common"
-        exclude group: "io.netty", module: "netty-resolver"
-        exclude group: "io.netty", module: "netty-transport"
-        exclude group: "io.netty", module: "netty-transport-native-unix-common"
-        exclude group: "io.netty", module: "netty-handler-proxy"
-        exclude group: "io.netty", module: "netty-codec-socks"
-        exclude group: "io.netty", module: "netty-handler"
-        exclude group: "io.netty", module: "netty-codec-http"
-        exclude group: "io.netty", module: "netty-codec-http2"
-        exclude group: "io.netty", module: "netty-transport-native-epoll"
-        exclude group: "io.netty", module: "netty-transport-classes-epoll"
-        exclude group: "io.netty", module: "netty-transport-native-kqueue"
-        exclude group: "io.netty", module: "netty-transport-classes-kqueue"
-        exclude group: "io.netty", module: "netty-tcnative-boringssl-static"
-        exclude group: "io.netty", module: "netty-tcnative-classes"
-        exclude group: "io.netty", module: "netty-resolver-dns"
-        exclude group: "io.netty", module: "netty-resolver-dns-native-macos"
-    }
+    implementation group: 'com.azure', name: 'azure-messaging-servicebus', version: "${asbVersion}"
 }
 
 tasks.withType(JavaCompile) {

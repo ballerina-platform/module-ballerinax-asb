@@ -56,9 +56,47 @@ configurations {
 }
 
 dependencies {
-    externalJars(group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "${jacksonVersion}") {
+    /* Azure dependencies */
+    externalJars(group: 'com.azure', name: 'azure-messaging-servicebus', version: "${asbVersion}") {
         transitive = false
     }
+    externalJars(group: 'com.azure', name: 'azure-core', version: "${azureCoreVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'com.azure', name: 'azure-core-amqp', version: "${azureCoreAmqpVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'com.azure', name: 'azure-core-http-netty', version: "${azureCoreHttpNettyVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'com.microsoft.azure', name: 'qpid-proton-j-extensions', version: "${azureQpidProtonJExVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'com.azure', name: 'azure-json', version: "${azureJsonVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'com.azure', name: 'azure-xml', version: "${azureXmlVersion}") {
+        transitive = false
+    }
+
+    /* Jackson dependencies */
+    externalJars(group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "${jacksonAnnotationsVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "${jacksonCoreVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${jacksonDatabindVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: "${jacksonDatatypeJsrVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: "${jacksonDataFormatXmlVersion}") {
+        transitive = false
+    }
+
+    /* Netty dependencies */
     externalJars(group: 'io.netty', name: 'netty-buffer', version: "${nettyVersion}") {
         transitive = false
     }
@@ -68,55 +106,54 @@ dependencies {
     externalJars(group: 'io.netty', name: 'netty-codec-dns', version: "${nettyVersion}") {
         transitive = false
     }
-    externalJars(group: 'io.netty', name: 'netty-common', version: "${nettyVersion}") {
-        transitive = false
-    }
-    externalJars(group: 'io.netty', name: 'netty-resolver', version: "${nettyVersion}") {
-        transitive = false
-    }
-    externalJars(group: 'io.netty', name: 'netty-transport', version: "${nettyVersion}") {
-        transitive = false
-    }
-    externalJars(group: 'io.netty', name: 'netty-transport-native-unix-common', version: "${nettyVersion}") {
-        transitive = false
-    }
-    externalJars(group: 'io.netty', name: 'netty-handler-proxy', version: "${nettyVersion}") {
-        transitive = false
-    }
-    externalJars(group: 'io.netty', name: 'netty-codec-socks', version: "${nettyVersion}") {
-        transitive = false
-    }
-    externalJars(group: 'io.netty', name: 'netty-handler', version: "${nettyVersion}") {
-        transitive = false
-    }
     externalJars(group: 'io.netty', name: 'netty-codec-http', version: "${nettyVersion}") {
         transitive = false
     }
     externalJars(group: 'io.netty', name: 'netty-codec-http2', version: "${nettyVersion}") {
         transitive = false
     }
-    externalJars(group: 'io.netty', name: 'netty-transport-native-epoll', version: "${nettyVersion}") {
+    externalJars(group: 'io.netty', name: 'netty-codec-socks', version: "${nettyVersion}") {
         transitive = false
     }
-    externalJars(group: 'io.netty', name: 'netty-transport-classes-epoll', version: "${nettyVersion}") {
+    externalJars(group: 'io.netty', name: 'netty-common', version: "${nettyVersion}") {
         transitive = false
     }
-    externalJars(group: 'io.netty', name: 'netty-transport-native-kqueue', version: "${nettyVersion}") {
+    externalJars(group: 'io.netty', name: 'netty-handler', version: "${nettyVersion}") {
         transitive = false
     }
-    externalJars(group: 'io.netty', name: 'netty-transport-classes-kqueue', version: "${nettyVersion}") {
+    externalJars(group: 'io.netty', name: 'netty-handler-proxy', version: "${nettyVersion}") {
         transitive = false
     }
-    externalJars(group: 'io.netty', name: 'netty-tcnative-boringssl-static', version: "${boringSslVersion}") {
-        transitive = false
-    }
-    externalJars(group: 'io.netty', name: 'netty-tcnative-classes', version: "${boringSslVersion}") {
+    externalJars(group: 'io.netty', name: 'netty-resolver', version: "${nettyVersion}") {
         transitive = false
     }
     externalJars(group: 'io.netty', name: 'netty-resolver-dns', version: "${nettyVersion}") {
         transitive = false
     }
-    externalJars(group: 'io.netty', name: 'netty-resolver-dns-native-macos', version: "${nettyVersion}") {
+    externalJars(group: 'io.netty', name: 'netty-resolver-dns-classes-macos', version: "${nettyVersion}") {
+        transitive = false
+    }
+    externalJars "io.netty:netty-resolver-dns-native-macos:${nettyVersion}:osx-x86_64"
+    externalJars(group: 'io.netty', name: 'netty-transport', version: "${nettyVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'io.netty', name: 'netty-transport-classes-epoll', version: "${nettyVersion}") {
+        transitive = false
+    }
+    externalJars "io.netty:netty-transport-native-epoll:${nettyVersion}:linux-x86_64"
+    externalJars(group: 'io.netty', name: 'netty-transport-classes-kqueue', version: "${nettyVersion}") {
+        transitive = false
+    }
+    externalJars "io.netty:netty-transport-native-kqueue:${nettyVersion}:osx-x86_64"
+    externalJars(group: 'io.netty', name: 'netty-transport-native-unix-common', version: "${nettyVersion}") {
+        transitive = false
+    }
+
+    /* Netty tcnative dependencies */
+    externalJars(group: 'io.netty', name: 'netty-tcnative-classes', version: "${nettyTcnativeVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'io.netty', name: 'netty-tcnative-boringssl-static', version: "${nettyTcnativeVersion}") {
         transitive = false
     }
     externalJars 'io.netty:netty-tcnative-boringssl-static::windows-x86_64'
@@ -124,15 +161,51 @@ dependencies {
     externalJars 'io.netty:netty-tcnative-boringssl-static::linux-x86_64'
     externalJars 'io.netty:netty-tcnative-boringssl-static::osx-aarch_64'
     externalJars 'io.netty:netty-tcnative-boringssl-static::osx-x86_64'
+
+    /* Project reactor dependencies */
+    externalJars(group: 'io.projectreactor', name: 'reactor-core', version: "${reactorCoreVersion}") {
+        transitive = false
+    }    
+    externalJars(group: 'io.projectreactor.netty', name: 'reactor-netty-core', version: "${reactorNettyVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'io.projectreactor.netty', name: 'reactor-netty-http', version: "${reactorNettyVersion}") {
+        transitive = false
+    }
+
+    /* Apache proton-j dependencies */
+    externalJars(group: 'org.apache.qpid', name: 'proton-j', version: "${protonJVersion}") {
+        transitive = false
+    }  
+
+    /* Rective streams dependencies */
+    externalJars(group: 'org.reactivestreams', name: 'reactive-streams', version: "${reactiveStreamsVersion}") {
+        transitive = false
+    }    
 }
 
 task updateTomlFiles {
     doLast {
         def newBallerinaToml = ballerinaTomlFilePlaceHolder.text.replace("@project.version@", project.version)
         newBallerinaToml = newBallerinaToml.replace("@toml.version@", tomlVersion)
-        newBallerinaToml = newBallerinaToml.replace("@jackson.version@", project.jacksonVersion)
+        newBallerinaToml = newBallerinaToml.replace("@asb.version@", project.asbVersion)
+        newBallerinaToml = newBallerinaToml.replace("@azure.core.version@", project.azureCoreVersion)
+        newBallerinaToml = newBallerinaToml.replace("@azure.core.amqp.version@", project.azureCoreAmqpVersion)
+        newBallerinaToml = newBallerinaToml.replace("@azure.core.http.netty.version@", project.azureCoreHttpNettyVersion)
+        newBallerinaToml = newBallerinaToml.replace("@azure.qpid.protonj.version@", project.azureQpidProtonJExVersion)
+        newBallerinaToml = newBallerinaToml.replace("@azure.json.version@", project.azureJsonVersion)
+        newBallerinaToml = newBallerinaToml.replace("@azure.xml.version@", project.azureXmlVersion)
+        newBallerinaToml = newBallerinaToml.replace("@jackson.annotations.version@", project.jacksonAnnotationsVersion)
+        newBallerinaToml = newBallerinaToml.replace("@jackson.core.version@", project.jacksonCoreVersion)
+        newBallerinaToml = newBallerinaToml.replace("@jackson.databind.version@", project.jacksonDatabindVersion)
+        newBallerinaToml = newBallerinaToml.replace("@jackson.datatypejsr.version@", project.jacksonDatatypeJsrVersion)
+        newBallerinaToml = newBallerinaToml.replace("@jackson.dataformatxml.version@", project.jacksonDataFormatXmlVersion)
         newBallerinaToml = newBallerinaToml.replace("@netty.version@", project.nettyVersion)
-        newBallerinaToml = newBallerinaToml.replace("@boringssl.version@", project.boringSslVersion)
+        newBallerinaToml = newBallerinaToml.replace("@netty.tcnative.version@", project.nettyTcnativeVersion)
+        newBallerinaToml = newBallerinaToml.replace("@reactor.core.version@", project.reactorCoreVersion)
+        newBallerinaToml = newBallerinaToml.replace("@reactor.netty.version@", project.reactorNettyVersion)
+        newBallerinaToml = newBallerinaToml.replace("@reactive.streams.version@", project.reactiveStreamsVersion)
+        newBallerinaToml = newBallerinaToml.replace("@protonj.version@", project.protonJVersion)
         ballerinaTomlFile.text = newBallerinaToml
     }
 }

@@ -22,17 +22,87 @@ module = "asb-native"
 version = "@project.version@"
 path = "../native/build/libs/asb-native-@project.version@.jar"
 
+# Azure dependencies
+[[platform.java21.dependency]]
+groupId = "com.azure"
+artifactId = "azure-messaging-servicebus"
+version = "@asb.version@"
+path = "./lib/azure-messaging-servicebus-@asb.version@.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.azure"
+artifactId = "azure-core"
+version = "@azure.core.version@"
+path = "./lib/azure-core-@azure.core.version@.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.azure"
+artifactId = "azure-core-amqp"
+version = "@azure.core.amqp.version@"
+path = "./lib/azure-core-amqp-@azure.core.amqp.version@.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.azure"
+artifactId = "azure-core-http-netty"
+version = "@azure.core.http.netty.version@"
+path = "./lib/azure-core-http-netty-@azure.core.http.netty.version@.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.azure"
+artifactId = "azure-json"
+version = "@azure.json.version@"
+path = "./lib/azure-json-@azure.json.version@.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.azure"
+artifactId = "azure-xml"
+version = "@azure.xml.version@"
+path = "./lib/azure-xml-@azure.xml.version@.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.microsoft.azure"
+artifactId = "qpid-proton-j-extensions"
+version = "@azure.qpid.protonj.version@"
+path = "./lib/qpid-proton-j-extensions-@azure.qpid.protonj.version@.jar"
+
+# Jackson dependencies
 [[platform.java21.dependency]]
 groupId = "com.fasterxml.jackson.core"
 artifactId = "jackson-annotations"
-version = "@jackson.version@"
-path = "./lib/jackson-annotations-@jackson.version@.jar"
+version = "@jackson.annotations.version@"
+path = "./lib/jackson-annotations-@jackson.annotations.version@.jar"
 
+[[platform.java21.dependency]]
+groupId = "com.fasterxml.jackson.core"
+artifactId = "jackson-core"
+version = "@jackson.core.version@"
+path = "./lib/jackson-core-@jackson.core.version@.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.fasterxml.jackson.core"
+artifactId = "jackson-databind"
+version = "@jackson.databind.version@"
+path = "./lib/jackson-databind-@jackson.databind.version@.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.fasterxml.jackson.datatype"
+artifactId = "jackson-datatype-jsr310"
+version = "@jackson.datatypejsr.version@"
+path = "./lib/jackson-datatype-jsr310-@jackson.datatypejsr.version@.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.fasterxml.jackson.dataformat"
+artifactId = "jackson-dataformat-xml"
+version = "@jackson.dataformatxml.version@"
+path = "./lib/jackson-dataformat-xml-@jackson.dataformatxml.version@.jar"
+
+# Netty dependencies
 [[platform.java21.dependency]]
 groupId = "io.netty"
 artifactId = "netty-buffer"
 version = "@netty.version@"
 path = "./lib/netty-buffer-@netty.version@.jar"
+
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
@@ -48,33 +118,17 @@ path = "./lib/netty-codec-dns-@netty.version@.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
-artifactId = "netty-common"
+artifactId = "netty-codec-http"
 version = "@netty.version@"
-path = "./lib/netty-common-@netty.version@.jar"
+path = "./lib/netty-codec-http-@netty.version@.jar"
+
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
-artifactId = "netty-resolver"
+artifactId = "netty-codec-http2"
 version = "@netty.version@"
-path = "./lib/netty-resolver-@netty.version@.jar"
+path = "./lib/netty-codec-http2-@netty.version@.jar"
 
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-transport"
-version = "@netty.version@"
-path = "./lib/netty-transport-@netty.version@.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-transport-native-unix-common"
-version = "@netty.version@"
-path = "./lib/netty-transport-native-unix-common-@netty.version@.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-handler-proxy"
-version = "@netty.version@"
-path = "./lib/netty-handler-proxy-@netty.version@.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
@@ -84,57 +138,27 @@ path = "./lib/netty-codec-socks-@netty.version@.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
+artifactId = "netty-common"
+version = "@netty.version@"
+path = "./lib/netty-common-@netty.version@.jar"
+
+[[platform.java21.dependency]]
+groupId = "io.netty"
 artifactId = "netty-handler"
 version = "@netty.version@"
 path = "./lib/netty-handler-@netty.version@.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
-artifactId = "netty-codec-http"
+artifactId = "netty-handler-proxy"
 version = "@netty.version@"
-path = "./lib/netty-codec-http-@netty.version@.jar"
+path = "./lib/netty-handler-proxy-@netty.version@.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
-artifactId = "netty-codec-http2"
+artifactId = "netty-resolver"
 version = "@netty.version@"
-path = "./lib/netty-codec-http2-@netty.version@.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-transport-native-epoll"
-version = "@netty.version@"
-path = "./lib/netty-transport-native-epoll-@netty.version@.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-transport-classes-epoll"
-version = "@netty.version@"
-path = "./lib/netty-transport-classes-epoll-@netty.version@.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-transport-native-kqueue"
-version = "@netty.version@"
-path = "./lib/netty-transport-native-kqueue-@netty.version@.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-transport-classes-kqueue"
-version = "@netty.version@"
-path = "./lib/netty-transport-classes-kqueue-@netty.version@.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-tcnative-boringssl-static"
-version = "@boringssl.version@"
-path = "./lib/netty-tcnative-boringssl-static-@boringssl.version@.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-tcnative-classes"
-version = "@boringssl.version@"
-path = "./lib/netty-tcnative-classes-@boringssl.version@.jar"
+path = "./lib/netty-resolver-@netty.version@.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
@@ -144,21 +168,100 @@ path = "./lib/netty-resolver-dns-@netty.version@.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
-artifactId = "netty-resolver-dns-native-macos"
+artifactId = "netty-resolver-dns-classes-macos"
 version = "@netty.version@"
-path = "./lib/netty-resolver-dns-native-macos-@netty.version@.jar"
+path = "./lib/netty-resolver-dns-classes-macos-@netty.version@.jar"
 
 [[platform.java21.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-@boringssl.version@-windows-x86_64.jar"
+path = "./lib/netty-resolver-dns-native-macos-@netty.version@-osx-x86_64.jar"
 
 [[platform.java21.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-@boringssl.version@-linux-aarch_64.jar"
+groupId = "io.netty"
+artifactId = "netty-transport"
+version = "@netty.version@"
+path = "./lib/netty-transport-@netty.version@.jar"
 
 [[platform.java21.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-@boringssl.version@-linux-x86_64.jar"
+groupId = "io.netty"
+artifactId = "netty-transport-classes-epoll"
+version = "@netty.version@"
+path = "./lib/netty-transport-classes-epoll-@netty.version@.jar"
 
 [[platform.java21.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-@boringssl.version@-osx-aarch_64.jar"
+path = "./lib/netty-transport-native-epoll-@netty.version@-linux-x86_64.jar"
 
 [[platform.java21.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-@boringssl.version@-osx-x86_64.jar"
+groupId = "io.netty"
+artifactId = "netty-transport-classes-kqueue"
+version = "@netty.version@"
+path = "./lib/netty-transport-classes-kqueue-@netty.version@.jar"
+
+[[platform.java21.dependency]]
+path = "./lib/netty-transport-native-kqueue-@netty.version@-osx-x86_64.jar"
+
+[[platform.java21.dependency]]
+groupId = "io.netty"
+artifactId = "netty-transport-native-unix-common"
+version = "@netty.version@"
+path = "./lib/netty-transport-native-unix-common-@netty.version@.jar"
+
+# Netty tcnative dependencies
+[[platform.java21.dependency]]
+groupId = "io.netty"
+artifactId = "netty-tcnative-classes"
+version = "@netty.tcnative.version@"
+path = "./lib/netty-tcnative-classes-@netty.tcnative.version@.jar"
+
+[[platform.java21.dependency]]
+groupId = "io.netty"
+artifactId = "netty-tcnative-boringssl-static"
+version = "@netty.tcnative.version@"
+path = "./lib/netty-tcnative-boringssl-static-@netty.tcnative.version@.jar"
+
+[[platform.java21.dependency]]
+path = "./lib/netty-tcnative-boringssl-static-@netty.tcnative.version@-windows-x86_64.jar"
+
+[[platform.java21.dependency]]
+path = "./lib/netty-tcnative-boringssl-static-@netty.tcnative.version@-linux-aarch_64.jar"
+
+[[platform.java21.dependency]]
+path = "./lib/netty-tcnative-boringssl-static-@netty.tcnative.version@-linux-x86_64.jar"
+
+[[platform.java21.dependency]]
+path = "./lib/netty-tcnative-boringssl-static-@netty.tcnative.version@-osx-aarch_64.jar"
+
+[[platform.java21.dependency]]
+path = "./lib/netty-tcnative-boringssl-static-@netty.tcnative.version@-osx-x86_64.jar"
+
+# Project reactor dependencies
+[[platform.java21.dependency]]
+groupId = "io.projectreactor"
+artifactId = "reactor-core"
+version = "@reactor.core.version@"
+path = "./lib/reactor-core-@reactor.core.version@.jar"
+
+[[platform.java21.dependency]]
+groupId = "io.projectreactor.netty"
+artifactId = "reactor-netty-core"
+version = "@reactor.netty.version@"
+path = "./lib/reactor-netty-core-@reactor.netty.version@.jar"
+
+[[platform.java21.dependency]]
+groupId = "io.projectreactor.netty"
+artifactId = "reactor-netty-http"
+version = "@reactor.netty.version@"
+path = "./lib/reactor-netty-http-@reactor.netty.version@.jar"
+
+# Apache proton-j dependencies
+[[platform.java21.dependency]]
+groupId = "org.apache.qpid"
+artifactId = "proton-j"
+version = "@protonj.version@"
+path = "./lib/proton-j-@protonj.version@.jar"
+
+# Reactive streams dependencies
+[[platform.java21.dependency]]
+groupId = "org.reactivestreams"
+artifactId = "reactive-streams"
+version = "@reactive.streams.version@"
+path = "./lib/reactive-streams-@reactive.streams.version@.jar"

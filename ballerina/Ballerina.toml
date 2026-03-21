@@ -5,7 +5,7 @@ name = "asb"
 version = "3.9.2-SNAPSHOT"
 license= ["Apache-2.0"]
 authors = ["Ballerina"]
-keywords = ["IT Operations/Message Brokers", "Cost/Paid", "Vendor/Microsoft", "Area/Messaging", "Type/Connector", "Type/Trigger"]
+keywords = ["Type/Connector", "Type/Trigger", "Vendor/Microsoft", "Area/Messaging", "IT Operations/Message Brokers", "Cost/Paid"]
 icon = "icon.png"
 repository = "https://github.com/ballerina-platform/module-ballerinax-azure-service-bus"
 
@@ -22,6 +22,50 @@ module = "asb-native"
 version = "3.9.2-SNAPSHOT"
 path = "../native/build/libs/asb-native-3.9.2-SNAPSHOT.jar"
 
+# Azure dependencies
+[[platform.java21.dependency]]
+groupId = "com.azure"
+artifactId = "azure-messaging-servicebus"
+version = "7.17.17"
+path = "./lib/azure-messaging-servicebus-7.17.17.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.azure"
+artifactId = "azure-core"
+version = "1.57.1"
+path = "./lib/azure-core-1.57.1.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.azure"
+artifactId = "azure-core-amqp"
+version = "2.11.3"
+path = "./lib/azure-core-amqp-2.11.3.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.azure"
+artifactId = "azure-core-http-netty"
+version = "1.16.3"
+path = "./lib/azure-core-http-netty-1.16.3.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.azure"
+artifactId = "azure-json"
+version = "1.4.0"
+path = "./lib/azure-json-1.4.0.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.azure"
+artifactId = "azure-xml"
+version = "1.2.1"
+path = "./lib/azure-xml-1.2.1.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.microsoft.azure"
+artifactId = "qpid-proton-j-extensions"
+version = "1.2.4"
+path = "./lib/qpid-proton-j-extensions-1.2.4.jar"
+
+# Jackson dependencies
 [[platform.java21.dependency]]
 groupId = "com.fasterxml.jackson.core"
 artifactId = "jackson-annotations"
@@ -29,136 +73,195 @@ version = "2.21"
 path = "./lib/jackson-annotations-2.21.jar"
 
 [[platform.java21.dependency]]
+groupId = "com.fasterxml.jackson.core"
+artifactId = "jackson-core"
+version = "2.21.1"
+path = "./lib/jackson-core-2.21.1.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.fasterxml.jackson.core"
+artifactId = "jackson-databind"
+version = "2.21.1"
+path = "./lib/jackson-databind-2.21.1.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.fasterxml.jackson.datatype"
+artifactId = "jackson-datatype-jsr310"
+version = "2.21.1"
+path = "./lib/jackson-datatype-jsr310-2.21.1.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.fasterxml.jackson.dataformat"
+artifactId = "jackson-dataformat-xml"
+version = "2.21.1"
+path = "./lib/jackson-dataformat-xml-2.21.1.jar"
+
+# Netty dependencies
+[[platform.java21.dependency]]
 groupId = "io.netty"
 artifactId = "netty-buffer"
-version = "4.1.118.Final"
-path = "./lib/netty-buffer-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-buffer-4.1.130.Final.jar"
+
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
 artifactId = "netty-codec"
-version = "4.1.118.Final"
-path = "./lib/netty-codec-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-codec-4.1.130.Final.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
 artifactId = "netty-codec-dns"
-version = "4.1.118.Final"
-path = "./lib/netty-codec-dns-4.1.118.Final.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-common"
-version = "4.1.118.Final"
-path = "./lib/netty-common-4.1.118.Final.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-resolver"
-version = "4.1.118.Final"
-path = "./lib/netty-resolver-4.1.118.Final.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-transport"
-version = "4.1.118.Final"
-path = "./lib/netty-transport-4.1.118.Final.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-transport-native-unix-common"
-version = "4.1.118.Final"
-path = "./lib/netty-transport-native-unix-common-4.1.118.Final.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-handler-proxy"
-version = "4.1.118.Final"
-path = "./lib/netty-handler-proxy-4.1.118.Final.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-codec-socks"
-version = "4.1.118.Final"
-path = "./lib/netty-codec-socks-4.1.118.Final.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-handler"
-version = "4.1.118.Final"
-path = "./lib/netty-handler-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-codec-dns-4.1.130.Final.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
 artifactId = "netty-codec-http"
-version = "4.1.118.Final"
-path = "./lib/netty-codec-http-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-codec-http-4.1.130.Final.jar"
+
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
 artifactId = "netty-codec-http2"
-version = "4.1.118.Final"
-path = "./lib/netty-codec-http2-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-codec-http2-4.1.130.Final.jar"
+
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
-artifactId = "netty-transport-native-epoll"
-version = "4.1.118.Final"
-path = "./lib/netty-transport-native-epoll-4.1.118.Final.jar"
+artifactId = "netty-codec-socks"
+version = "4.1.130.Final"
+path = "./lib/netty-codec-socks-4.1.130.Final.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
-artifactId = "netty-transport-classes-epoll"
-version = "4.1.118.Final"
-path = "./lib/netty-transport-classes-epoll-4.1.118.Final.jar"
+artifactId = "netty-common"
+version = "4.1.130.Final"
+path = "./lib/netty-common-4.1.130.Final.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
-artifactId = "netty-transport-native-kqueue"
-version = "4.1.118.Final"
-path = "./lib/netty-transport-native-kqueue-4.1.118.Final.jar"
+artifactId = "netty-handler"
+version = "4.1.130.Final"
+path = "./lib/netty-handler-4.1.130.Final.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
-artifactId = "netty-transport-classes-kqueue"
-version = "4.1.118.Final"
-path = "./lib/netty-transport-classes-kqueue-4.1.118.Final.jar"
+artifactId = "netty-handler-proxy"
+version = "4.1.130.Final"
+path = "./lib/netty-handler-proxy-4.1.130.Final.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
-artifactId = "netty-tcnative-boringssl-static"
-version = "2.0.70.Final"
-path = "./lib/netty-tcnative-boringssl-static-2.0.70.Final.jar"
-
-[[platform.java21.dependency]]
-groupId = "io.netty"
-artifactId = "netty-tcnative-classes"
-version = "2.0.70.Final"
-path = "./lib/netty-tcnative-classes-2.0.70.Final.jar"
+artifactId = "netty-resolver"
+version = "4.1.130.Final"
+path = "./lib/netty-resolver-4.1.130.Final.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
 artifactId = "netty-resolver-dns"
-version = "4.1.118.Final"
-path = "./lib/netty-resolver-dns-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-resolver-dns-4.1.130.Final.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
-artifactId = "netty-resolver-dns-native-macos"
-version = "4.1.118.Final"
-path = "./lib/netty-resolver-dns-native-macos-4.1.118.Final.jar"
+artifactId = "netty-resolver-dns-classes-macos"
+version = "4.1.130.Final"
+path = "./lib/netty-resolver-dns-classes-macos-4.1.130.Final.jar"
 
 [[platform.java21.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-2.0.70.Final-windows-x86_64.jar"
+path = "./lib/netty-resolver-dns-native-macos-4.1.130.Final-osx-x86_64.jar"
 
 [[platform.java21.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-2.0.70.Final-linux-aarch_64.jar"
+groupId = "io.netty"
+artifactId = "netty-transport"
+version = "4.1.130.Final"
+path = "./lib/netty-transport-4.1.130.Final.jar"
 
 [[platform.java21.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-2.0.70.Final-linux-x86_64.jar"
+groupId = "io.netty"
+artifactId = "netty-transport-classes-epoll"
+version = "4.1.130.Final"
+path = "./lib/netty-transport-classes-epoll-4.1.130.Final.jar"
 
 [[platform.java21.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-2.0.70.Final-osx-aarch_64.jar"
+path = "./lib/netty-transport-native-epoll-4.1.130.Final-linux-x86_64.jar"
 
 [[platform.java21.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-2.0.70.Final-osx-x86_64.jar"
+groupId = "io.netty"
+artifactId = "netty-transport-classes-kqueue"
+version = "4.1.130.Final"
+path = "./lib/netty-transport-classes-kqueue-4.1.130.Final.jar"
+
+[[platform.java21.dependency]]
+path = "./lib/netty-transport-native-kqueue-4.1.130.Final-osx-x86_64.jar"
+
+[[platform.java21.dependency]]
+groupId = "io.netty"
+artifactId = "netty-transport-native-unix-common"
+version = "4.1.130.Final"
+path = "./lib/netty-transport-native-unix-common-4.1.130.Final.jar"
+
+# Netty tcnative dependencies
+[[platform.java21.dependency]]
+groupId = "io.netty"
+artifactId = "netty-tcnative-classes"
+version = "2.0.74.Final"
+path = "./lib/netty-tcnative-classes-2.0.74.Final.jar"
+
+[[platform.java21.dependency]]
+groupId = "io.netty"
+artifactId = "netty-tcnative-boringssl-static"
+version = "2.0.74.Final"
+path = "./lib/netty-tcnative-boringssl-static-2.0.74.Final.jar"
+
+[[platform.java21.dependency]]
+path = "./lib/netty-tcnative-boringssl-static-2.0.74.Final-windows-x86_64.jar"
+
+[[platform.java21.dependency]]
+path = "./lib/netty-tcnative-boringssl-static-2.0.74.Final-linux-aarch_64.jar"
+
+[[platform.java21.dependency]]
+path = "./lib/netty-tcnative-boringssl-static-2.0.74.Final-linux-x86_64.jar"
+
+[[platform.java21.dependency]]
+path = "./lib/netty-tcnative-boringssl-static-2.0.74.Final-osx-aarch_64.jar"
+
+[[platform.java21.dependency]]
+path = "./lib/netty-tcnative-boringssl-static-2.0.74.Final-osx-x86_64.jar"
+
+# Project reactor dependencies
+[[platform.java21.dependency]]
+groupId = "io.projectreactor"
+artifactId = "reactor-core"
+version = "3.7.7"
+path = "./lib/reactor-core-3.7.7.jar"
+
+[[platform.java21.dependency]]
+groupId = "io.projectreactor.netty"
+artifactId = "reactor-netty-core"
+version = "1.2.5"
+path = "./lib/reactor-netty-core-1.2.5.jar"
+
+[[platform.java21.dependency]]
+groupId = "io.projectreactor.netty"
+artifactId = "reactor-netty-http"
+version = "1.2.5"
+path = "./lib/reactor-netty-http-1.2.5.jar"
+
+# Apache proton-j dependencies
+[[platform.java21.dependency]]
+groupId = "org.apache.qpid"
+artifactId = "proton-j"
+version = "0.34.0"
+path = "./lib/proton-j-0.34.0.jar"
+
+# Reactive streams dependencies
+[[platform.java21.dependency]]
+groupId = "org.reactivestreams"
+artifactId = "reactive-streams"
+version = "1.0.4"
+path = "./lib/reactive-streams-1.0.4.jar"
