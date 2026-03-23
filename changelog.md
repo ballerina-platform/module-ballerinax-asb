@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - [Application written with `ballerina/asb` connector gives a conflicting JAR warning with `netty-buffer` and `jackson-annotations`](https://github.com/ballerina-platform/ballerina-library/issues/7061)
+- Fix `updateRule` not applying filter and action changes due to incorrect field extraction from nested `SqlRule` record
 
 ## [3.8.1] - 2024-09-30
 
