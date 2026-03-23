@@ -94,157 +94,157 @@ path = "./lib/jackson-dataformat-xml-2.14.0.jar"
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-buffer"
-version = "4.1.118.Final"
-path = "./lib/netty-buffer-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-buffer-4.1.130.Final.jar"
 
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-codec"
-version = "4.1.118.Final"
-path = "./lib/netty-codec-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-codec-4.1.130.Final.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-codec-dns"
-version = "4.1.118.Final"
-path = "./lib/netty-codec-dns-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-codec-dns-4.1.130.Final.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-codec-http"
-version = "4.1.118.Final"
-path = "./lib/netty-codec-http-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-codec-http-4.1.130.Final.jar"
 
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-codec-http2"
-version = "4.1.118.Final"
-path = "./lib/netty-codec-http2-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-codec-http2-4.1.130.Final.jar"
 
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-codec-socks"
-version = "4.1.118.Final"
-path = "./lib/netty-codec-socks-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-codec-socks-4.1.130.Final.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-common"
-version = "4.1.118.Final"
-path = "./lib/netty-common-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-common-4.1.130.Final.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-handler"
-version = "4.1.118.Final"
-path = "./lib/netty-handler-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-handler-4.1.130.Final.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-handler-proxy"
-version = "4.1.118.Final"
-path = "./lib/netty-handler-proxy-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-handler-proxy-4.1.130.Final.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-resolver"
-version = "4.1.118.Final"
-path = "./lib/netty-resolver-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-resolver-4.1.130.Final.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-resolver-dns"
-version = "4.1.118.Final"
-path = "./lib/netty-resolver-dns-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-resolver-dns-4.1.130.Final.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-resolver-dns-classes-macos"
-version = "4.1.118.Final"
-path = "./lib/netty-resolver-dns-classes-macos-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-resolver-dns-classes-macos-4.1.130.Final.jar"
 
 [[platform.java17.dependency]]
-path = "./lib/netty-resolver-dns-native-macos-4.1.118.Final-osx-x86_64.jar"
+path = "./lib/netty-resolver-dns-native-macos-4.1.130.Final-osx-x86_64.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-transport"
-version = "4.1.118.Final"
-path = "./lib/netty-transport-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-transport-4.1.130.Final.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-transport-classes-epoll"
-version = "4.1.118.Final"
-path = "./lib/netty-transport-classes-epoll-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-transport-classes-epoll-4.1.130.Final.jar"
 
 [[platform.java17.dependency]]
-path = "./lib/netty-transport-native-epoll-4.1.118.Final-linux-x86_64.jar"
+path = "./lib/netty-transport-native-epoll-4.1.130.Final-linux-x86_64.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-transport-classes-kqueue"
-version = "4.1.118.Final"
-path = "./lib/netty-transport-classes-kqueue-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-transport-classes-kqueue-4.1.130.Final.jar"
 
 [[platform.java17.dependency]]
-path = "./lib/netty-transport-native-kqueue-4.1.118.Final-osx-x86_64.jar"
+path = "./lib/netty-transport-native-kqueue-4.1.130.Final-osx-x86_64.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-transport-native-unix-common"
-version = "4.1.118.Final"
-path = "./lib/netty-transport-native-unix-common-4.1.118.Final.jar"
+version = "4.1.130.Final"
+path = "./lib/netty-transport-native-unix-common-4.1.130.Final.jar"
 
 # Netty tcnative dependencies
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-tcnative-classes"
-version = "2.0.66.Final"
-path = "./lib/netty-tcnative-classes-2.0.66.Final.jar"
+version = "2.0.74.Final"
+path = "./lib/netty-tcnative-classes-2.0.74.Final.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.netty"
 artifactId = "netty-tcnative-boringssl-static"
-version = "2.0.66.Final"
-path = "./lib/netty-tcnative-boringssl-static-2.0.66.Final.jar"
+version = "2.0.74.Final"
+path = "./lib/netty-tcnative-boringssl-static-2.0.74.Final.jar"
 
 [[platform.java17.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-2.0.66.Final-windows-x86_64.jar"
+path = "./lib/netty-tcnative-boringssl-static-2.0.74.Final-windows-x86_64.jar"
 
 [[platform.java17.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-2.0.66.Final-linux-aarch_64.jar"
+path = "./lib/netty-tcnative-boringssl-static-2.0.74.Final-linux-aarch_64.jar"
 
 [[platform.java17.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-2.0.66.Final-linux-x86_64.jar"
+path = "./lib/netty-tcnative-boringssl-static-2.0.74.Final-linux-x86_64.jar"
 
 [[platform.java17.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-2.0.66.Final-osx-aarch_64.jar"
+path = "./lib/netty-tcnative-boringssl-static-2.0.74.Final-osx-aarch_64.jar"
 
 [[platform.java17.dependency]]
-path = "./lib/netty-tcnative-boringssl-static-2.0.66.Final-osx-x86_64.jar"
+path = "./lib/netty-tcnative-boringssl-static-2.0.74.Final-osx-x86_64.jar"
 
 # Project reactor dependencies
 [[platform.java17.dependency]]
 groupId = "io.projectreactor"
 artifactId = "reactor-core"
-version = "3.5.2"
-path = "./lib/reactor-core-3.5.2.jar"
+version = "3.7.7"
+path = "./lib/reactor-core-3.7.7.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.projectreactor.netty"
 artifactId = "reactor-netty-core"
-version = "1.1.13"
-path = "./lib/reactor-netty-core-1.1.13.jar"
+version = "1.2.5"
+path = "./lib/reactor-netty-core-1.2.5.jar"
 
 [[platform.java17.dependency]]
 groupId = "io.projectreactor.netty"
 artifactId = "reactor-netty-http"
-version = "1.1.13"
-path = "./lib/reactor-netty-http-1.1.13.jar"
+version = "1.2.5"
+path = "./lib/reactor-netty-http-1.2.5.jar"
 
 # Apache proton-j dependencies
 [[platform.java17.dependency]]
