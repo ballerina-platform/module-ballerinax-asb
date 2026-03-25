@@ -895,3 +895,14 @@ public type ErrorContext record {
     @display {label: "Reason"}
     string reason;
 };
+
+# Represents admin action error context.
+# 
+# + statusCode - The HTTP status code returned by the ASB Admin API
+# + reason - The reason for the error
+public type AdminErrorContext record {
+    @display {label: "Status code"}
+    int statusCode;
+    @display {label: "Reason"}
+    string reason;
+};
