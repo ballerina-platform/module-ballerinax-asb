@@ -500,13 +500,19 @@ public class ASBUtils {
      */
     public static RuleProperties getUpdatedRulePropertiesFromBObject(BMap<BString, Object> ruleConfig,
                                                                      RuleProperties ruleProp) {
-        if (ruleConfig.containsKey(ASBConstants.RECORD_FIELD_ACTION)) {
-            ruleProp.setAction(new SqlRuleAction(
-                    ruleConfig.getStringValue(ASBConstants.RECORD_FIELD_ACTION).getValue()));
-        }
-        if (ruleConfig.containsKey(ASBConstants.RECORD_FIELD_FILTER)) {
-            ruleProp.setFilter(new SqlRuleFilter(
-                    ruleConfig.getStringValue(ASBConstants.RECORD_FIELD_FILTER).getValue()));
+        if (ruleConfig.containsKey(ASBConstants.RECORD_FIELD_SQL_RULE)) {
+            if (ruleConfig.getMapValue(ASBConstants.RECORD_FIELD_SQL_RULE).containsKey(
+                    ASBConstants.RECORD_FIELD_ACTION)) {
+                ruleProp.setAction(new SqlRuleAction(
+                        ruleConfig.getMapValue(ASBConstants.RECORD_FIELD_SQL_RULE).getStringValue(
+                                ASBConstants.RECORD_FIELD_ACTION).getValue()));
+            }
+            if (ruleConfig.getMapValue(ASBConstants.RECORD_FIELD_SQL_RULE).containsKey(
+                    ASBConstants.RECORD_FIELD_FILTER)) {
+                ruleProp.setFilter(new SqlRuleFilter(
+                        ruleConfig.getMapValue(ASBConstants.RECORD_FIELD_SQL_RULE).getStringValue(
+                                ASBConstants.RECORD_FIELD_FILTER).getValue()));
+            }
         }
         return ruleProp;
     }
