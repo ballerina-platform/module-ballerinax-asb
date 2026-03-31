@@ -2,7 +2,7 @@
 distribution = "2201.8.0"
 org = "ballerinax"
 name = "asb"
-version = "3.8.4-SNAPSHOT"
+version = "3.8.4"
 license= ["Apache-2.0"]
 authors = ["Ballerina"]
 keywords = ["IT Operations/Message Brokers", "Cost/Paid", "Vendor/Microsoft"]
@@ -19,8 +19,8 @@ graalvmCompatible = true
 groupId = "org.ballerinax"
 artifactId = "asb-native"
 module = "asb-native" 
-version = "3.8.4-SNAPSHOT"
-path = "../native/build/libs/asb-native-3.8.4-SNAPSHOT.jar"
+version = "3.8.4"
+path = "../native/build/libs/asb-native-3.8.4.jar"
 
 # Azure dependencies
 [[platform.java17.dependency]]

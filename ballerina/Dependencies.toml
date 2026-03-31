@@ -127,7 +127,7 @@ modules = [
 [[package]]
 org = "ballerinax"
 name = "asb"
-version = "3.8.4-SNAPSHOT"
+version = "3.8.4"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "lang.runtime"},
