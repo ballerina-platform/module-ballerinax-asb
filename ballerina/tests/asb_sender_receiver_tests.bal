@@ -345,7 +345,6 @@ function testCompleteMessageFromQueueOperation() returns error? {
 
     log:printInfo("Initializing Asb receiver client.");
     receiverConfig.receiveMode = PEEK_LOCK;
-    log:printInfo(receiverConfig.toString());
     MessageReceiver messageReceiver = check new (receiverConfig);
 
     log:printInfo("Sending via Asb sender.");

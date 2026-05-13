@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- [Improve ASB administrator client to return errors with specific details](https://github.com/ballerina-platform/ballerina-library/issues/8727)
+
+## [3.9.2] - 2026-05-12
+
 ### Fixed
 - [Fix `updateRule` not applying filter and action changes due to incorrect field extraction from nested `SqlRule` record](https://github.com/ballerina-platform/ballerina-library/issues/8730)
 
