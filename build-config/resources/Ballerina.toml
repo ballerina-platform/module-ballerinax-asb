@@ -8,6 +8,7 @@ authors = ["Ballerina"]
 keywords = ["Type/Connector", "Type/Trigger", "Vendor/Microsoft", "Area/Messaging", "IT Operations/Message Brokers", "Cost/Paid"]
 icon = "icon.png"
 repository = "https://github.com/ballerina-platform/module-ballerinax-azure-service-bus"
+include = ["metadata/**"]
 
 [build-options]
 observabilityIncluded = true

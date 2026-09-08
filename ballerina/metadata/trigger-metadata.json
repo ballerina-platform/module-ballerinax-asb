@@ -1,0 +1,69 @@
+{
+  "version": "v1.0",
+
+  "listeners": [
+    {
+      "id": "$listener",
+      "doc": "Connects to the configured Azure Service Bus entity and dispatches each delivered message to the attached service.",
+      "type": { "name": "Listener" },
+      "services": ["$service"],
+      "multipleServicesAllowed": true
+    }
+  ],
+
+  "serviceTypes": [
+    {
+      "id": "$service",
+      "doc": "Consumes messages delivered from the queue, topic, or subscription configured on the listener.",
+      "type": { "name": "Service" },
+      "concrete": false,
+      "multipleListenersAllowed": true,
+      "handlers": {
+        "backedByConcreteType": false,
+        "options": [
+          {
+            "id": "$service.onMessage",
+            "name": "onMessage",
+            "kind": "remote",
+            "doc": "Invoked once per message delivered from the queue, topic, or subscription configured on the listener. The entity to consume from and the receive mode (RECEIVE_AND_DELETE or PEEK_LOCK) are configured on the listener's init config, not on the service.",
+            "presence": "required",
+            "params": [
+              {
+                "id": "$service.onMessage.message",
+                "name": "message",
+                "doc": "The delivered message. Declare a narrower type to project the body, see the messageBody data-binding rule.",
+                "type": { "name": "Message" },
+                "presence": "required"
+              },
+              {
+                "id": "$service.onMessage.caller",
+                "name": "caller",
+                "doc": "Handle for explicitly completing, abandoning, deferring, or dead-lettering the message via its lock token. Needed only when the listener's receiveMode is PEEK_LOCK and autoComplete is disabled; under RECEIVE_AND_DELETE the message is already removed from the entity on retrieval, and with autoComplete enabled the listener settles it automatically.",
+                "type": { "name": "Caller" },
+                "presence": "optional"
+              }
+            ],
+            "returns": { "id": "$service.onMessage.returns", "type": [{ "name": "error", "builtin": true }, { "name": "()", "builtin": true }] }
+          },
+          {
+            "id": "$service.onError",
+            "name": "onError",
+            "kind": "remote",
+            "doc": "Invoked when a message cannot be retrieved from the subscribed entity or cannot be dispatched, most commonly because a delivered message's body fails to bind to the declared parameter type.",
+            "presence": "optional",
+            "params": [
+              {
+                "id": "$service.onError.error",
+                "name": "'error",
+                "doc": "The failure that prevented the message from being delivered.",
+                "type": { "name": "MessageRetrievalError" },
+                "presence": "required"
+              }
+            ],
+            "returns": { "id": "$service.onError.returns", "type": [{ "name": "error", "builtin": true }, { "name": "()", "builtin": true }] }
+          }
+        ]
+      }
+    }
+  ]
+}

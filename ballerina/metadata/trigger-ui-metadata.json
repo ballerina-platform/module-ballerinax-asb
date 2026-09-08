@@ -1,0 +1,550 @@
+{
+  "version": "v1.0",
+  "metadata": {
+    "kind": "event"
+  },
+  "trigger": {
+    "displayName": "Azure Service Bus Event Integration",
+    "description": "Create a service to handle messages from an Azure Service Bus queue or topic subscription",
+    "type": "asb"
+  },
+  "listeners": [
+    {
+      "target": "$listener",
+      "form": {
+        "section": {
+          "label": "Configure Azure Service Bus Listener",
+          "description": "Select an existing Azure Service Bus listener or create a new one"
+        },
+        "createNew": {
+          "label": "Create new",
+          "description": "Create a new Azure Service Bus listener"
+        },
+        "listenerConfig": {
+          "label": "Listener Configurations",
+          "description": "Configure the Azure Service Bus listener."
+        },
+        "useExisting": {
+          "label": "Use existing",
+          "description": "Select an existing Azure Service Bus listener"
+        },
+        "existingListener": {
+          "label": "Listener(s)",
+          "description": "Select one or more existing listeners to attach the service to (no new(...) is generated)."
+        },
+        "existingListenerWidget": "MULTI_SELECT_LISTENER",
+        "existingListenerItems": [
+          "asbListener"
+        ],
+        "existingListenerValue": [
+          "asbListener"
+        ]
+      },
+      "formFields": {
+        "listenerVarName": {
+          "key": "listenerVarName",
+          "default": "asbListener",
+          "metadata": {
+            "label": "Listener Name",
+            "description": "Provide a name for the listener being created."
+          },
+          "source": {
+            "construct": {
+              "kind": "LISTENER_VAR_NAME"
+            }
+          },
+          "state": {
+            "enabled": true,
+            "editable": true,
+            "optional": false,
+            "advanced": false
+          }
+        },
+        "connectionString": {
+          "key": "connectionString",
+          "placeholder": "Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key-name>;SharedAccessKey=<key>",
+          "default": "\"Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key-name>;SharedAccessKey=<key>\"",
+          "metadata": {
+            "label": "Connection String",
+            "description": "The connection string to connect to the Azure Service Bus namespace."
+          },
+          "source": {
+            "argument": {
+              "kind": "LISTENER_PARAM_INCLUDED_FIELD"
+            },
+            "path": "connectionString"
+          },
+          "state": {
+            "enabled": true,
+            "editable": true,
+            "optional": false,
+            "advanced": false
+          }
+        },
+        "entityConfig": {
+          "key": "entityConfig",
+          "default": "QUEUE",
+          "metadata": {
+            "label": "Entity Type",
+            "description": "Whether this listener subscribes to a queue or to a topic subscription."
+          },
+          "widget": {
+            "widgetKind": "CHOICE",
+            "selected": true,
+            "options": [
+              {
+                "label": "Queue",
+                "value": "QUEUE",
+                "helperText": "Receive messages from a Service Bus queue."
+              },
+              {
+                "label": "Topic Subscription",
+                "value": "TOPIC",
+                "helperText": "Receive messages from a subscription on a Service Bus topic."
+              }
+            ]
+          },
+          "choices": [
+            {
+              "default": "QUEUE",
+              "metadata": {
+                "label": "Queue",
+                "description": "Receive messages from a Service Bus queue."
+              },
+              "properties": {
+                "queueName": {
+                  "key": "queueName",
+                  "placeholder": "myQueue",
+                  "default": "myQueue",
+                  "metadata": {
+                    "label": "Queue Name",
+                    "description": "Name of the Service Bus queue to subscribe to."
+                  },
+                  "source": {
+                    "argument": {
+                      "kind": "LISTENER_PARAM_INCLUDED_FIELD"
+                    },
+                    "path": "entityConfig.queueName"
+                  },
+                  "state": {
+                    "enabled": true,
+                    "editable": true,
+                    "optional": false,
+                    "advanced": false
+                  }
+                }
+              },
+              "source": {
+                "argument": {
+                  "kind": "LISTENER_PARAM_INCLUDED_FIELD"
+                },
+                "path": "entityConfig"
+              },
+              "state": {
+                "enabled": true,
+                "editable": true,
+                "optional": false,
+                "advanced": false
+              }
+            },
+            {
+              "default": "TOPIC",
+              "metadata": {
+                "label": "Topic Subscription",
+                "description": "Receive messages from a subscription on a Service Bus topic."
+              },
+              "properties": {
+                "topicName": {
+                  "key": "topicName",
+                  "placeholder": "myTopic",
+                  "default": "myTopic",
+                  "metadata": {
+                    "label": "Topic Name",
+                    "description": "Name of the Service Bus topic."
+                  },
+                  "source": {
+                    "argument": {
+                      "kind": "LISTENER_PARAM_INCLUDED_FIELD"
+                    },
+                    "path": "entityConfig.topicName"
+                  },
+                  "state": {
+                    "enabled": true,
+                    "editable": true,
+                    "optional": false,
+                    "advanced": false
+                  }
+                },
+                "subscriptionName": {
+                  "key": "subscriptionName",
+                  "placeholder": "mySubscription",
+                  "default": "mySubscription",
+                  "metadata": {
+                    "label": "Subscription Name",
+                    "description": "Name of the subscription associated with the topic."
+                  },
+                  "source": {
+                    "argument": {
+                      "kind": "LISTENER_PARAM_INCLUDED_FIELD"
+                    },
+                    "path": "entityConfig.subscriptionName"
+                  },
+                  "state": {
+                    "enabled": true,
+                    "editable": true,
+                    "optional": false,
+                    "advanced": false
+                  }
+                }
+              },
+              "source": {
+                "argument": {
+                  "kind": "LISTENER_PARAM_INCLUDED_FIELD"
+                },
+                "path": "entityConfig"
+              },
+              "state": {
+                "enabled": false,
+                "editable": true,
+                "optional": false,
+                "advanced": false
+              }
+            }
+          ],
+          "source": {
+            "argument": {
+              "kind": "LISTENER_PARAM_INCLUDED_FIELD"
+            },
+            "path": "entityConfig"
+          },
+          "state": {
+            "enabled": true,
+            "editable": true,
+            "optional": false,
+            "advanced": false
+          }
+        }
+      }
+    }
+  ],
+  "serviceTypes": [
+    {
+      "target": "$service",
+      "metadata": {
+        "label": "ASB Consumer",
+        "description": "Consumes messages from the subscribed Azure Service Bus queue or topic subscription."
+      },
+      "state": {
+        "editable": false,
+        "enabled": true
+      },
+      "handlers": [
+        {
+          "target": "$service.onMessage",
+          "metadata": {
+            "label": "On Message",
+            "description": "The `onMessage` remote method is triggered when a message is received from the subscribed queue or topic subscription."
+          },
+          "parameters": [
+            {
+              "target": "$service.onMessage.message",
+              "metadata": {
+                "label": "Message",
+                "description": "The message received from the subscribed queue or topic subscription."
+              },
+              "fields": [
+                {
+                  "target": {
+                    "kind": "recordField",
+                    "owner": "message.parameter",
+                    "path": "type"
+                  },
+                  "metadata": {
+                    "label": "Parameter Type",
+                    "description": "The type of the parameter"
+                  },
+                  "state": {
+                    "editable": false,
+                    "enabled": true,
+                    "optional": false,
+                    "advanced": false
+                  },
+                  "key": "type",
+                  "default": "asb:Message",
+                  "widget": {
+                    "widgetKind": "TYPE",
+                    "selected": true
+                  }
+                },
+                {
+                  "target": {
+                    "kind": "recordField",
+                    "owner": "message.parameter",
+                    "path": "name"
+                  },
+                  "metadata": {
+                    "label": "message",
+                    "description": "The message received from the subscribed queue or topic subscription."
+                  },
+                  "state": {
+                    "enabled": false,
+                    "editable": true,
+                    "optional": false,
+                    "advanced": false
+                  },
+                  "key": "name",
+                  "placeholder": "message",
+                  "default": "message"
+                }
+              ],
+              "source": {
+                "construct": {
+                  "kind": "FUNCTION_PARAM"
+                }
+              },
+              "state": {
+                "enabled": false,
+                "editable": true,
+                "optional": false,
+                "advanced": false,
+                "hidden": false
+              }
+            },
+            {
+              "target": "$service.onMessage.caller",
+              "metadata": {
+                "label": "Caller",
+                "description": "Azure Service Bus caller used to complete, abandon, defer or dead-letter the message (required for manual settlement when Auto Complete is off)."
+              },
+              "fields": [
+                {
+                  "target": {
+                    "kind": "recordField",
+                    "owner": "caller.parameter",
+                    "path": "type"
+                  },
+                  "metadata": {
+                    "label": "Include Caller",
+                    "description": "Tick to include the Azure Service Bus caller parameter in the handler signature."
+                  },
+                  "state": {
+                    "enabled": true,
+                    "editable": true,
+                    "optional": true,
+                    "advanced": false
+                  },
+                  "key": "type",
+                  "placeholder": "asb:Caller",
+                  "default": false
+                },
+                {
+                  "target": {
+                    "kind": "recordField",
+                    "owner": "caller.parameter",
+                    "path": "name"
+                  },
+                  "metadata": {
+                    "label": "caller",
+                    "description": "Azure Service Bus caller used to complete, abandon, defer or dead-letter the message."
+                  },
+                  "state": {
+                    "editable": false,
+                    "enabled": true,
+                    "optional": false,
+                    "advanced": false
+                  },
+                  "key": "name",
+                  "placeholder": "caller",
+                  "default": "caller"
+                }
+              ],
+              "source": {
+                "construct": {
+                  "kind": "FUNCTION_PARAM"
+                }
+              },
+              "state": {
+                "enabled": false,
+                "editable": true,
+                "optional": true,
+                "advanced": false,
+                "hidden": false
+              }
+            }
+          ],
+          "returnType": {
+            "target": "$service.onMessage.returns",
+            "metadata": {
+              "label": "Return Type",
+              "description": "The return type of the function."
+            },
+            "state": {
+              "editable": false,
+              "enabled": true,
+              "optional": true
+            },
+            "source": {
+              "construct": {
+                "kind": "FUNCTION_RETURN"
+              }
+            }
+          },
+          "source": {
+            "construct": {
+              "kind": "FUNCTION"
+            },
+            "argument": {
+              "originalName": "onMessage"
+            },
+            "module": {
+              "name": "asb"
+            }
+          },
+          "state": {
+            "enabled": false,
+            "editable": true,
+            "optional": false
+          },
+          "nameEditable": false,
+          "repeatable": "FALSE",
+          "canAddParameters": false
+        },
+        {
+          "target": "$service.onError",
+          "metadata": {
+            "label": "On Error",
+            "description": "Triggered when an error occurs while retrieving or dispatching a message."
+          },
+          "parameters": [
+            {
+              "target": {
+                "kind": "concreteParam",
+                "serviceType": "$service",
+                "handler": "onError",
+                "name": "'error"
+              },
+              "metadata": {
+                "label": "Error",
+                "description": "The failure that prevented the message from being delivered."
+              },
+              "state": {
+                "editable": false,
+                "enabled": true,
+                "optional": false,
+                "advanced": false,
+                "hidden": false
+              },
+              "fields": [
+                {
+                  "target": {
+                    "kind": "recordField",
+                    "owner": "'error.parameter",
+                    "path": "type"
+                  },
+                  "metadata": {
+                    "label": "Parameter Type",
+                    "description": "The type of the parameter"
+                  },
+                  "state": {
+                    "editable": false,
+                    "enabled": true,
+                    "optional": true,
+                    "advanced": false
+                  },
+                  "key": "type",
+                  "placeholder": "asb:MessageRetrievalError",
+                  "default": "asb:MessageRetrievalError",
+                  "widget": {
+                    "widgetKind": "TYPE",
+                    "selected": true
+                  }
+                },
+                {
+                  "target": {
+                    "kind": "recordField",
+                    "owner": "'error.parameter",
+                    "path": "name"
+                  },
+                  "metadata": {
+                    "label": "'error",
+                    "description": "The failure that prevented the message from being delivered."
+                  },
+                  "state": {
+                    "enabled": true,
+                    "editable": true,
+                    "optional": false,
+                    "advanced": false
+                  },
+                  "key": "name",
+                  "placeholder": "'error",
+                  "default": "'error"
+                }
+              ],
+              "source": {
+                "construct": {
+                  "kind": "FUNCTION_PARAM"
+                }
+              }
+            }
+          ],
+          "returnType": {
+            "target": "$service.onError.returns",
+            "metadata": {
+              "label": "Return Type",
+              "description": "The return type of the function."
+            },
+            "state": {
+              "editable": false,
+              "enabled": true,
+              "optional": true
+            },
+            "source": {
+              "construct": {
+                "kind": "FUNCTION_RETURN"
+              }
+            }
+          },
+          "source": {
+            "construct": {
+              "kind": "FUNCTION"
+            },
+            "argument": {
+              "originalName": "onError"
+            },
+            "module": {
+              "name": "asb"
+            }
+          },
+          "state": {
+            "enabled": false,
+            "editable": true,
+            "optional": true
+          },
+          "nameEditable": false,
+          "repeatable": "FALSE",
+          "canAddParameters": false
+        }
+      ],
+      "source": {
+        "construct": {
+          "kind": "SERVICE_TYPE_DESCRIPTOR"
+        },
+        "argument": {
+          "originalName": "Service"
+        },
+        "module": {
+          "name": "asb"
+        }
+      },
+      "description": "Handles messages received from an Azure Service Bus queue or topic subscription."
+    }
+  ],
+  "artifactInfo": {
+    "displayLabel": "Azure Service Bus Event Integration",
+    "icon": {
+      "lightPath": "icons/light.svg",
+      "darkPath": "icons/dark.svg",
+      "color": "#0078D4"
+    }
+  }
+}

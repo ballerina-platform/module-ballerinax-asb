@@ -10,7 +10,7 @@ distribution-version = "2201.13.0"
 [[package]]
 org = "ballerina"
 name = "io"
-version = "1.8.0"
+version = "1.8.1"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "lang.value"}
@@ -96,7 +96,7 @@ modules = [
 [[package]]
 org = "ballerina"
 name = "observe"
-version = "1.7.1"
+version = "1.7.2"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"}
 ]
@@ -131,7 +131,7 @@ modules = [
 [[package]]
 org = "ballerina"
 name = "time"
-version = "2.8.0"
+version = "2.8.1"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"}
 ]
@@ -154,7 +154,7 @@ modules = [
 [[package]]
 org = "ballerinax"
 name = "asb"
-version = "3.10.0"
+version = "3.10.1"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "lang.runtime"},
