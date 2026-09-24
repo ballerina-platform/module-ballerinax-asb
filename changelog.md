@@ -1,6 +1,6 @@
 # Changelog
 
-This file contains all the notable changes done to the Ballerina WebSub package through the releases.
+This file contains all the notable changes done to the Ballerina Azure Service Bus package through the releases.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -9,19 +9,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- [Improve ASB administrator client to return errors with specific details](https://github.com/ballerina-platform/ballerina-library/issues/8727)
 - Updated Netty to 4.2.18.Final, replacing the `netty-codec` artifact with `netty-codec-base` and adding `netty-codec-compression` ([#9152](https://github.com/ballerina-platform/ballerina-library/issues/9152))
 - Updated netty-tcnative to 2.0.84.Final and Reactor Netty to 1.3.7, the first Reactor Netty line built against Netty 4.2
 - Updated the minimum required Ballerina distribution to 2201.14.0 (Swan Lake Update 14)
 
+## [3.10.1] - 2026-09-08
+
+### Added
+
+- Add Integrator trigger UI metadata resources
+
+### Changed
+
+- Update Netty to 4.1.137.Final and Jackson to 2.18.9 to clear reported vulnerabilities
+
+## [3.10.0] - 2026-05-13
+
+### Changed
+
+- [Improve ASB administrator client to return errors with specific details](https://github.com/ballerina-platform/ballerina-library/issues/8727)
+
 ## [3.9.2] - 2026-05-12
 
 ### Fixed
+
 - [Fix `updateRule` not applying filter and action changes due to incorrect field extraction from nested `SqlRule` record](https://github.com/ballerina-platform/ballerina-library/issues/8730)
 
-## [3.9.1] - 2024-08-07
+## [3.9.1] - 2025-08-07
 
-#### Fixed
+### Fixed
 
 - [Resolve conflicting JAR warning with netty-codec](https://github.com/ballerina-platform/ballerina-library/issues/8135)
 
