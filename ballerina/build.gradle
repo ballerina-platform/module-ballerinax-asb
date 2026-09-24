@@ -97,7 +97,10 @@ dependencies {
     externalJars(group: 'io.netty', name: 'netty-buffer', version: "${nettyVersion}") {
         transitive = false
     }
-    externalJars(group: 'io.netty', name: 'netty-codec', version: "${nettyVersion}") {
+    externalJars(group: 'io.netty', name: 'netty-codec-base', version: "${nettyVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'io.netty', name: 'netty-codec-compression', version: "${nettyVersion}") {
         transitive = false
     }
     externalJars(group: 'io.netty', name: 'netty-codec-dns', version: "${nettyVersion}") {
