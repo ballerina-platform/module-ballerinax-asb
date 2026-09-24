@@ -103,6 +103,12 @@ dependencies {
     externalJars(group: 'io.netty', name: 'netty-codec-compression', version: "${nettyVersion}") {
         transitive = false
     }
+    externalJars(group: 'io.netty', name: 'netty-codec-classes-quic', version: "${nettyVersion}") {
+        transitive = false
+    }
+    externalJars(group: 'io.netty', name: 'netty-codec-http3', version: "${nettyVersion}") {
+        transitive = false
+    }
     externalJars(group: 'io.netty', name: 'netty-codec-dns', version: "${nettyVersion}") {
         transitive = false
     }

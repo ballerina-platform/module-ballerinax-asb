@@ -113,6 +113,18 @@ path = "./lib/netty-codec-compression-4.2.18.Final.jar"
 
 [[platform.java21.dependency]]
 groupId = "io.netty"
+artifactId = "netty-codec-classes-quic"
+version = "4.2.18.Final"
+path = "./lib/netty-codec-classes-quic-4.2.18.Final.jar"
+
+[[platform.java21.dependency]]
+groupId = "io.netty"
+artifactId = "netty-codec-http3"
+version = "4.2.18.Final"
+path = "./lib/netty-codec-http3-4.2.18.Final.jar"
+
+[[platform.java21.dependency]]
+groupId = "io.netty"
 artifactId = "netty-codec-dns"
 version = "4.2.18.Final"
 path = "./lib/netty-codec-dns-4.2.18.Final.jar"
