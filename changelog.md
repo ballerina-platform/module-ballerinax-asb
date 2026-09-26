@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
+- Upgrade Azure Service Bus SDK to 7.17.7 and AMQP core to 2.9.12 to handle idle connection errors without Reactor dropped-error logs.
+- Upgrade Jackson dependencies to 2.18.10 to address CVE-2026-68497, CVE-2026-19032, and CVE-2026-83557 in jackson-databind.
 - [Fix `updateRule` not applying filter and action changes due to incorrect field extraction from nested `SqlRule` record](https://github.com/ballerina-platform/ballerina-library/issues/8730)
 
 ## [3.8.2] - 2024-10-01
