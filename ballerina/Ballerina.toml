@@ -27,38 +27,44 @@ path = "../native/build/libs/asb-native-3.10.1.jar"
 [[platform.java21.dependency]]
 groupId = "com.azure"
 artifactId = "azure-messaging-servicebus"
-version = "7.14.3"
-path = "./lib/azure-messaging-servicebus-7.14.3.jar"
+version = "7.17.7"
+path = "./lib/azure-messaging-servicebus-7.17.7.jar"
 
 [[platform.java21.dependency]]
 groupId = "com.azure"
 artifactId = "azure-core"
-version = "1.42.0"
-path = "./lib/azure-core-1.42.0.jar"
+version = "1.54.1"
+path = "./lib/azure-core-1.54.1.jar"
 
 [[platform.java21.dependency]]
 groupId = "com.azure"
 artifactId = "azure-core-amqp"
-version = "2.8.8"
-path = "./lib/azure-core-amqp-2.8.8.jar"
+version = "2.9.12"
+path = "./lib/azure-core-amqp-2.9.12.jar"
 
 [[platform.java21.dependency]]
 groupId = "com.azure"
 artifactId = "azure-core-http-netty"
-version = "1.13.6"
-path = "./lib/azure-core-http-netty-1.13.6.jar"
+version = "1.15.7"
+path = "./lib/azure-core-http-netty-1.15.7.jar"
 
 [[platform.java21.dependency]]
 groupId = "com.azure"
 artifactId = "azure-json"
-version = "1.0.1"
-path = "./lib/azure-json-1.0.1.jar"
+version = "1.3.0"
+path = "./lib/azure-json-1.3.0.jar"
 
 [[platform.java21.dependency]]
 groupId = "com.microsoft.azure"
 artifactId = "qpid-proton-j-extensions"
-version = "1.2.4"
-path = "./lib/qpid-proton-j-extensions-1.2.4.jar"
+version = "1.2.5"
+path = "./lib/qpid-proton-j-extensions-1.2.5.jar"
+
+[[platform.java21.dependency]]
+groupId = "com.azure"
+artifactId = "azure-xml"
+version = "1.1.0"
+path = "./lib/azure-xml-1.1.0.jar"
 
 # Jackson dependencies
 [[platform.java21.dependency]]
@@ -251,8 +257,8 @@ path = "./lib/reactor-netty-http-1.2.8.jar"
 [[platform.java21.dependency]]
 groupId = "org.apache.qpid"
 artifactId = "proton-j"
-version = "0.34.0"
-path = "./lib/proton-j-0.34.0.jar"
+version = "0.34.1"
+path = "./lib/proton-j-0.34.1.jar"
 
 # Reactive streams dependencies
 [[platform.java21.dependency]]
