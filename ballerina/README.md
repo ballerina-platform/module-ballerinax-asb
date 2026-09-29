@@ -20,7 +20,7 @@ This connector supports the following operations:
 - Send messages to a queue, topic, or subscription.
 - Receive messages from a queue, topic, or subscription.
 
-The Ballerina Azure Service Bus module utilizes Microsoft's [Azure Service Bus JAVA SDK 7.13.1](https://learn.microsoft.com/en-us/java/api/overview/azure/service-bus?view=azure-java-stable#libraries-for-data-access). 
+The Ballerina Azure Service Bus module utilizes Microsoft's [Azure Service Bus JAVA SDK 7.17.7](https://learn.microsoft.com/en-us/java/api/overview/azure/service-bus?view=azure-java-stable#libraries-for-data-access).
 
 ## Setup guide
 

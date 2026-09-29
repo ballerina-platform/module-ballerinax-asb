@@ -60,6 +60,12 @@ artifactId = "qpid-proton-j-extensions"
 version = "@azure.qpid.protonj.version@"
 path = "./lib/qpid-proton-j-extensions-@azure.qpid.protonj.version@.jar"
 
+[[platform.java21.dependency]]
+groupId = "com.azure"
+artifactId = "azure-xml"
+version = "@azure.xml.version@"
+path = "./lib/azure-xml-@azure.xml.version@.jar"
+
 # Jackson dependencies
 [[platform.java21.dependency]]
 groupId = "com.fasterxml.jackson.core"
