@@ -2,7 +2,7 @@
 distribution = "2201.13.0"
 org = "ballerinax"
 name = "asb"
-version = "3.10.1"
+version = "3.10.2"
 license= ["Apache-2.0"]
 authors = ["Ballerina"]
 keywords = ["Type/Connector", "Type/Trigger", "Vendor/Microsoft", "Area/Messaging", "IT Operations/Message Brokers", "Cost/Paid"]
@@ -20,8 +20,8 @@ graalvmCompatible = true
 groupId = "org.ballerinax"
 artifactId = "asb-native"
 module = "asb-native" 
-version = "3.10.1"
-path = "../native/build/libs/asb-native-3.10.1.jar"
+version = "3.10.2"
+path = "../native/build/libs/asb-native-3.10.2.jar"
 
 # Azure dependencies
 [[platform.java21.dependency]]

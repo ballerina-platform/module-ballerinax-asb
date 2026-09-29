@@ -154,7 +154,7 @@ modules = [
 [[package]]
 org = "ballerinax"
 name = "asb"
-version = "3.10.1"
+version = "3.10.2"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "lang.runtime"},
