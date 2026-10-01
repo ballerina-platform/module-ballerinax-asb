@@ -17,12 +17,12 @@
 import ballerina/log;
 import ballerina/test;
 
-string testTopic3 = "topic3";
+string testTopic3 = newTestResourceName("topic3");
 string nonExistingName = "nonExistingTopicName";
 string invalidName = "#TEST";
 string testSubscription3 = "subscription3";
 string testRule3 = "rule3";
-string testQueue3 = "queue3";
+string testQueue3 = newTestResourceName("queue3");
 string duplicateTopicQueueErrorPrefix = string `Error occurred while processing request: SubCode=40900. Conflict. You're requesting an operation that isn't allowed in the resource's current state. To know more visit https://aka.ms/sbResourceMgrExceptions.`;
 string duplicateSubscriptionErrorPrefix = string `Error occurred while processing request: The messaging entity`;
 string duplicateRuleErrorPrefix = string `Error occurred while processing request: The messaging entity`;
@@ -44,7 +44,13 @@ function testCreateQTSR() returns error? {
     Administrator adminClient = check new (connectionString);
 
     TopicProperties? topicProp = check adminClient->createTopic(testTopic3);
+    if topicProp is TopicProperties {
+        createdTestTopics[testTopic3] = true;
+    }
     QueueProperties? queueProp = check adminClient->createQueue(testQueue3);
+    if queueProp is QueueProperties {
+        createdTestQueues[testQueue3] = true;
+    }
     SubscriptionProperties? subProp = check adminClient->createSubscription(testTopic3, testSubscription3);
     RuleProperties? ruleProp = check adminClient->createRule(testTopic3, testSubscription3, testRule3);
     test:assertTrue(topicProp is TopicProperties && queueProp is QueueProperties && subProp is SubscriptionProperties && ruleProp is RuleProperties, msg = "Topic, Queue, Subscription and Rule creation failed.");

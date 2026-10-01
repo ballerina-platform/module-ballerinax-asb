@@ -20,18 +20,18 @@ import ballerina/test;
 
 // Connection Configurations
 configurable string connectionString = os:getEnv("CONNECTION_STRING");
-configurable string testTopic1 = "topic1";
-configurable string testTopic2 = "topic2";
+configurable string testTopic1 = newTestResourceName("topic1");
+configurable string testTopic2 = newTestResourceName("topic2");
 configurable string testSubscription1 = "subscription1";
 configurable string testSubscription2 = "subscription2";
 configurable string testRule1 = "rule1";
-configurable string testQueue1 = "queue1";
-configurable string testQueue2 = "queue2";
+configurable string testQueue1 = newTestResourceName("queue1");
+configurable string testQueue2 = newTestResourceName("queue2");
 configurable string testRule2 = "rule2";
-configurable string testTopic4 = "topic4";
+configurable string testTopic4 = newTestResourceName("topic4");
 configurable string testSubscription4 = "subscription4";
 configurable string testRule4 = "rule4";
-configurable string testQueue4 = "queue4";
+configurable string testQueue4 = newTestResourceName("queue4");
 string subscriptionPath1 = testSubscription1;
 string userMetaData = "Test User Meta Data";
 
@@ -166,6 +166,7 @@ function testCreateQueue() returns error? {
     Administrator adminClient = check new (connectionString);
     QueueProperties? queueProp = check adminClient->createQueue(testQueue1);
     if queueProp is QueueProperties {
+        createdTestQueues[testQueue1] = true;
         log:printInfo("Queue created successfully.");
     } else {
         test:assertFail("Queue creation failed.");
@@ -200,6 +201,7 @@ function testCreateTopicOperation() returns error? {
     Administrator adminClient = check new (connectionString);
     TopicProperties? topicProp = check adminClient->createTopic(testTopic1);
     if topicProp is TopicProperties {
+        createdTestTopics[testTopic1] = true;
         log:printInfo("Topic created successfully.");
     } else {
         test:assertFail("Topic creation failed.");
@@ -287,6 +289,7 @@ function testCreateWithOptionQueue() returns error? {
     Administrator adminClient = check new (connectionString);
     QueueProperties? queueProp = check adminClient->createQueue(testQueue2, queueConfig);
     if queueProp is QueueProperties {
+        createdTestQueues[testQueue2] = true;
         log:printInfo(queueProp.toString());
         test:assertEquals(queueProp.name, testQueue2, msg = "Queue creation failed. wrong name");
         //test:assertEquals(queueProp.autoDeleteOnIdle, queueConfig.autoDeleteOnIdle, msg = "Queue creation failed. wrong autoDeleteOnIdle");
@@ -338,6 +341,7 @@ function createQueueWithInclusionParameters() returns error? {
                                 status = ACTIVE,
                                 userMetadata = userMetaData);
     if queueProp is QueueProperties {
+        createdTestQueues[testQueue4] = true;
         log:printInfo(queueProp.toString());
         test:assertEquals(queueProp.name, testQueue4, msg = "Queue creation failed. wrong name");
         test:assertEquals(queueProp.deadLetteringOnMessageExpiration, true,
@@ -503,6 +507,7 @@ function testCreateWithOptionTopic() returns error? {
     Administrator adminClient = check new (connectionString);
     TopicProperties? topicProp = check adminClient->createTopic(testTopic2, topicConfig);
     if topicProp is TopicProperties {
+        createdTestTopics[testTopic2] = true;
         log:printInfo(topicProp.toString());
         test:assertEquals(topicProp.name, testTopic2, msg = "Topic creation failed. wrong name");
         test:assertEquals(topicProp.autoDeleteOnIdle.seconds, topicConfig.autoDeleteOnIdle?.seconds, msg = "Topic creation failed. wrong autoDeleteOnIdle");
@@ -545,6 +550,7 @@ function createTopicWithInclusionParameters() returns error? {
                                 userMetadata = userMetaData,
                                 supportOrdering = false);
     if topicProp is TopicProperties {
+        createdTestTopics[testTopic4] = true;
         log:printInfo(topicProp.toString());
         test:assertEquals(topicProp.name, testTopic4, msg = "Topic creation failed. wrong name");
         test:assertEquals(topicProp.enableBatchedOperations, true,
