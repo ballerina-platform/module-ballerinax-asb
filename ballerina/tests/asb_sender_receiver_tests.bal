@@ -207,7 +207,11 @@ function testReceiveMessagePayloadFromDeadLetterQueueOperation() returns error? 
 
     if messageReceived is Message {
         check messageReceiver->deadLetter(messageReceived);
-        byte[]|error? bytePayload = messageReceiver->receivePayload(serverWaitTime, deadLettered = true);
+        // Payload-only receive does not expose a lock token for complete(). Consume
+        // the DLQ message so the following batch test cannot receive it again.
+        MessageReceiver deadLetterReceiver = check new ({...receiverConfig, receiveMode: RECEIVE_AND_DELETE});
+        byte[]|error? bytePayload = deadLetterReceiver->receivePayload(serverWaitTime, deadLettered = true);
+        check deadLetterReceiver->close();
         if bytePayload is byte[] {
             string receivedContent = check string:fromBytes(bytePayload);
             test:assertEquals(receivedContent, stringContent, msg = "Sent & received payload are not equal.");
@@ -275,7 +279,7 @@ function testSendAndReceiveBatchFromQueueOperation() returns error? {
 
 @test:Config {
     groups: ["asb_sender_receiver"],
-    dependsOn: [testSendAndReceiveMessagePayloadFromQueueOperation],
+    dependsOn: [testSendAndReceiveBatchFromQueueOperation],
     enable: true
 }
 function testSendAndReceiveBatchFromDeadLetterQueueOperation() returns error? {

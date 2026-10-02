@@ -24,6 +24,10 @@ import io.ballerina.runtime.api.creators.ErrorCreator;
 import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BError;
 
+import java.util.Collections;
+import java.util.IdentityHashMap;
+import java.util.Set;
+
 /**
  * ASB module error related utilities.
  *
@@ -42,6 +46,14 @@ public class ASBErrorCreator {
                 ErrorCreator.createError(e.fillInStackTrace()));
     }
     public static BError fromUnhandledException(Exception e) {
+        // The synchronous Azure receiver may wrap its ServiceBusException in a
+        // terminal RuntimeException. Preserve the ASB reason and the full cause chain.
+        Set<Throwable> visited = Collections.newSetFromMap(new IdentityHashMap<>());
+        for (Throwable cause = e; cause != null && visited.add(cause); cause = cause.getCause()) {
+            if (cause instanceof ServiceBusException serviceBusException) {
+                return fromJavaException(ASB_ERROR_PREFIX + serviceBusException.getReason(), e);
+            }
+        }
         return fromJavaException(UNHANDLED_ERROR_PREFIX + e.getMessage(), e);
     }
     public static BError fromBError(BError error) {
