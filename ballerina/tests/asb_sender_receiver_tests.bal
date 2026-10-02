@@ -197,7 +197,9 @@ function testReceiveMessagePayloadFromDeadLetterQueueOperation() returns error? 
     log:printInfo("[[testReceiveMessagePayloadFromDeadLetterQueueOperation]]");
     log:printInfo("Creating Asb message sender and receiver.");
     MessageSender messageSender = check new (senderConfig);
-    MessageReceiver messageReceiver = check new (receiverConfig);
+    ASBServiceReceiverConfig peekLockConfig = receiverConfig.clone();
+    peekLockConfig.receiveMode = PEEK_LOCK;
+    MessageReceiver messageReceiver = check new (peekLockConfig);
 
     log:printInfo("Sending via Asb sender client.");
     check messageSender->send(message1);
@@ -209,7 +211,9 @@ function testReceiveMessagePayloadFromDeadLetterQueueOperation() returns error? 
         check messageReceiver->deadLetter(messageReceived);
         // Payload-only receive does not expose a lock token for complete(). Consume
         // the DLQ message so the following batch test cannot receive it again.
-        MessageReceiver deadLetterReceiver = check new ({...receiverConfig, receiveMode: RECEIVE_AND_DELETE});
+        ASBServiceReceiverConfig deadLetterConfig = receiverConfig.clone();
+        deadLetterConfig.receiveMode = RECEIVE_AND_DELETE;
+        MessageReceiver deadLetterReceiver = check new (deadLetterConfig);
         byte[]|error? bytePayload = deadLetterReceiver->receivePayload(serverWaitTime, deadLettered = true);
         check deadLetterReceiver->close();
         if bytePayload is byte[] {
