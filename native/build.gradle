@@ -56,6 +56,8 @@ test {
         enabled = true
         destinationFile = file("$buildDir/coverage-reports/jacoco.exec")
         includeNoLocationClasses = true
+        // Generated JDK reflection classes cannot be safely instrumented.
+        excludes = ['jdk.internal.*']
     }
 }
 
