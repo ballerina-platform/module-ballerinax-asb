@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
+- Upgrade Azure Service Bus SDK to 7.18.0 to preserve subscription time-to-live updates, with aligned supporting libraries.
+- Preserve the Service Bus error reason when the synchronous receiver wraps an exception.
+- Run queue dead-letter tests before later tests enable dead-letter forwarding on the shared queue.
 - Upgrade Jackson dependencies to 2.18.11 to address CVE-2026-91776 and CVE-2026-91777.
 - Upgrade Netty to 4.1.137.Final to address the reported codec, HTTP, DNS, transport, and handler vulnerabilities, including CVE-2026-75595.
 - Upgrade Azure Service Bus SDK to 7.17.7 and AMQP core to 2.9.12 to handle idle connection errors without Reactor dropped-error logs.

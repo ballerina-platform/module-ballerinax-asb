@@ -197,7 +197,9 @@ function testReceiveMessagePayloadFromDeadLetterQueueOperation() returns error? 
     log:printInfo("[[testReceiveMessagePayloadFromDeadLetterQueueOperation]]");
     log:printInfo("Creating Asb message sender and receiver.");
     MessageSender messageSender = check new (senderConfig);
-    MessageReceiver messageReceiver = check new (receiverConfig);
+    ASBServiceReceiverConfig peekLockConfig = receiverConfig.clone();
+    peekLockConfig.receiveMode = PEEK_LOCK;
+    MessageReceiver messageReceiver = check new (peekLockConfig);
 
     log:printInfo("Sending via Asb sender client.");
     check messageSender->send(message1);
@@ -207,7 +209,13 @@ function testReceiveMessagePayloadFromDeadLetterQueueOperation() returns error? 
 
     if messageReceived is Message {
         check messageReceiver->deadLetter(messageReceived);
-        byte[]|error? bytePayload = messageReceiver->receivePayload(serverWaitTime, deadLettered = true);
+        // Payload-only receive does not expose a lock token for complete(). Consume
+        // the DLQ message so the following batch test cannot receive it again.
+        ASBServiceReceiverConfig deadLetterConfig = receiverConfig.clone();
+        deadLetterConfig.receiveMode = RECEIVE_AND_DELETE;
+        MessageReceiver deadLetterReceiver = check new (deadLetterConfig);
+        byte[]|error? bytePayload = deadLetterReceiver->receivePayload(serverWaitTime, deadLettered = true);
+        check deadLetterReceiver->close();
         if bytePayload is byte[] {
             string receivedContent = check string:fromBytes(bytePayload);
             test:assertEquals(receivedContent, stringContent, msg = "Sent & received payload are not equal.");
@@ -275,7 +283,7 @@ function testSendAndReceiveBatchFromQueueOperation() returns error? {
 
 @test:Config {
     groups: ["asb_sender_receiver"],
-    dependsOn: [testSendAndReceiveMessagePayloadFromQueueOperation],
+    dependsOn: [testSendAndReceiveBatchFromQueueOperation],
     enable: true
 }
 function testSendAndReceiveBatchFromDeadLetterQueueOperation() returns error? {
