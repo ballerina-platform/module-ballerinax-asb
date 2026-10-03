@@ -20,6 +20,7 @@ package io.ballerina.lib.asb.util;
 
 import com.azure.core.amqp.exception.AmqpErrorCondition;
 import com.azure.core.amqp.exception.AmqpException;
+import com.azure.core.amqp.implementation.WindowedSubscriber;
 import com.azure.messaging.servicebus.ServiceBusErrorSource;
 import com.azure.messaging.servicebus.ServiceBusException;
 import io.ballerina.runtime.api.Module;
@@ -27,11 +28,15 @@ import io.ballerina.runtime.api.values.BError;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import reactor.core.publisher.Flux;
 
 import java.lang.reflect.Field;
+import java.time.Duration;
+import java.util.Collections;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
 
 public class ASBErrorCreatorTest {
     private static Field moduleField;
@@ -59,6 +64,32 @@ public class ASBErrorCreatorTest {
         BError error = ASBErrorCreator.fromUnhandledException(terminal);
         assertEquals("ASB Error: MESSAGING_ENTITY_NOT_FOUND", error.getMessage());
         assertNotNull(error.getCause());
+    }
+
+    @Test
+    public void preservesAmqpReasonFromSynchronousReceiver() {
+        AmqpException original = new AmqpException(false, AmqpErrorCondition.NOT_FOUND, "Missing queue", null);
+        WindowedSubscriber<String> subscriber = new WindowedSubscriber<>(Collections.emptyMap(),
+                "The receiver client is terminated. Re-create the client to continue receive attempt.",
+                new WindowedSubscriber.WindowedSubscriberOptions<>());
+        try {
+            Flux.<String>error(original).subscribeWith(subscriber);
+            RuntimeException terminal = assertThrows(RuntimeException.class,
+                    () -> subscriber.enqueueRequest(1, Duration.ofSeconds(1)).stream().toList());
+            BError error = ASBErrorCreator.fromUnhandledException(terminal);
+            assertEquals("ASB Error: MESSAGING_ENTITY_NOT_FOUND", error.getMessage());
+            assertNotNull(error.getCause());
+        } finally {
+            subscriber.dispose();
+        }
+    }
+
+    @Test
+    public void preservesOtherWrappedAmqpReasons() {
+        AmqpException original = new AmqpException(false, AmqpErrorCondition.UNAUTHORIZED_ACCESS,
+                "Access denied", null);
+        BError error = ASBErrorCreator.fromUnhandledException(new RuntimeException("Receiver terminated", original));
+        assertEquals("ASB Error: UNAUTHORIZED", error.getMessage());
     }
 
     @Test

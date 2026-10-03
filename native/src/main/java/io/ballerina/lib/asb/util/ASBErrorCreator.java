@@ -18,7 +18,9 @@
 
 package io.ballerina.lib.asb.util;
 
+import com.azure.core.amqp.exception.AmqpException;
 import com.azure.core.exception.HttpResponseException;
+import com.azure.messaging.servicebus.ServiceBusErrorSource;
 import com.azure.messaging.servicebus.ServiceBusException;
 import io.ballerina.runtime.api.creators.ErrorCreator;
 import io.ballerina.runtime.api.utils.StringUtils;
@@ -46,12 +48,16 @@ public class ASBErrorCreator {
                 ErrorCreator.createError(e.fillInStackTrace()));
     }
     public static BError fromUnhandledException(Exception e) {
-        // The synchronous Azure receiver may wrap its ServiceBusException in a
-        // terminal RuntimeException. Preserve the ASB reason and the full cause chain.
+        // The synchronous Azure receiver may wrap ServiceBusException or a raw
+        // AmqpException. Preserve the SDK failure reason and the full cause chain.
         Set<Throwable> visited = Collections.newSetFromMap(new IdentityHashMap<>());
         for (Throwable cause = e; cause != null && visited.add(cause); cause = cause.getCause()) {
             if (cause instanceof ServiceBusException serviceBusException) {
                 return fromJavaException(ASB_ERROR_PREFIX + serviceBusException.getReason(), e);
+            }
+            if (cause instanceof AmqpException amqpException) {
+                ServiceBusException mapped = new ServiceBusException(amqpException, ServiceBusErrorSource.UNKNOWN);
+                return fromJavaException(ASB_ERROR_PREFIX + mapped.getReason(), e);
             }
         }
         return fromJavaException(UNHANDLED_ERROR_PREFIX + e.getMessage(), e);
