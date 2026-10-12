@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updated Netty to 4.2.18.Final, replacing the `netty-codec` artifact with `netty-codec-base` and adding `netty-codec-compression` ([#9152](https://github.com/ballerina-platform/ballerina-library/issues/9152))
 - Updated netty-tcnative to 2.0.84.Final and Reactor Netty to 1.3.7, the first Reactor Netty line built against Netty 4.2
-- Updated the minimum required Ballerina distribution to 2201.14.0 (Swan Lake Update 14)
+- Updated the minimum required Ballerina distribution to 2201.14.0 (Swan Lake Update 14) with Java 25 support
 
 ## [3.10.1] - 2026-09-08
 
