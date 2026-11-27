@@ -70,32 +70,32 @@ path = "./lib/azure-xml-1.1.0.jar"
 [[platform.java21.dependency]]
 groupId = "com.fasterxml.jackson.core"
 artifactId = "jackson-annotations"
-version = "2.18.10"
-path = "./lib/jackson-annotations-2.18.10.jar"
+version = "2.18.11"
+path = "./lib/jackson-annotations-2.18.11.jar"
 
 [[platform.java21.dependency]]
 groupId = "com.fasterxml.jackson.core"
 artifactId = "jackson-core"
-version = "2.18.10"
-path = "./lib/jackson-core-2.18.10.jar"
+version = "2.18.11"
+path = "./lib/jackson-core-2.18.11.jar"
 
 [[platform.java21.dependency]]
 groupId = "com.fasterxml.jackson.core"
 artifactId = "jackson-databind"
-version = "2.18.10"
-path = "./lib/jackson-databind-2.18.10.jar"
+version = "2.18.11"
+path = "./lib/jackson-databind-2.18.11.jar"
 
 [[platform.java21.dependency]]
 groupId = "com.fasterxml.jackson.datatype"
 artifactId = "jackson-datatype-jsr310"
-version = "2.18.10"
-path = "./lib/jackson-datatype-jsr310-2.18.10.jar"
+version = "2.18.11"
+path = "./lib/jackson-datatype-jsr310-2.18.11.jar"
 
 [[platform.java21.dependency]]
 groupId = "com.fasterxml.jackson.dataformat"
 artifactId = "jackson-dataformat-xml"
-version = "2.18.10"
-path = "./lib/jackson-dataformat-xml-2.18.10.jar"
+version = "2.18.11"
+path = "./lib/jackson-dataformat-xml-2.18.11.jar"
 
 # Netty dependencies
 [[platform.java21.dependency]]
@@ -257,8 +257,8 @@ path = "./lib/reactor-netty-http-1.2.8.jar"
 [[platform.java21.dependency]]
 groupId = "org.apache.qpid"
 artifactId = "proton-j"
-version = "0.34.1"
-path = "./lib/proton-j-0.34.1.jar"
+version = "0.35.0"
+path = "./lib/proton-j-0.35.0.jar"
 
 # Reactive streams dependencies
 [[platform.java21.dependency]]
