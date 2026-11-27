@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- [Update jackson to 2.18.11 and proton-j to 0.35.0 to fix known vulnerabilities](https://github.com/ballerina-platform/ballerina-library/issues/9645)
 - [Improve ASB administrator client to return errors with specific details](https://github.com/ballerina-platform/ballerina-library/issues/8727)
 
 ## [3.9.2] - 2026-05-12
